@@ -1,0 +1,18 @@
+.dialogs {
+	display: flex;
+	justify-content: space-around;
+	align-items:flex-start;
+
+}
+.dialogs_items{
+	width: 400px;
+
+}
+.messages {
+	width: 400px;
+	overflow: hidden	;
+}
+.dialogs_items .active {
+	
+	color:rgb(40, 218, 64);
+}

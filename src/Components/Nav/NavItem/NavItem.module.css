@@ -6,18 +6,19 @@
  }
  
  
- .item_d{
-	padding-left: 5px;
-	line-height: 25px;
-	font-size: 16px;
-	width: 95%;
-	text-align: left;
-	transition: linear 5ms;
-	cursor: pointer;
+
+ 
+ 
+ .item_div a {
+	 line-height: 25px;
+	 margin: 5px;
+	 padding-left: 10px;
+	 display: block;
+	 width: 250px;
+	 text-decoration: none;
  }
- .item_d:hover{
-	padding-left: 5px;
-	border-radius: 5px;
+ .item_div a:hover {
+	border-radius: 10px;
 	background-color:rgb(100, 100, 100);
 	width: 100%;
- }
+}

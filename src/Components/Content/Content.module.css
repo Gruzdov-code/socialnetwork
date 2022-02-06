@@ -1,8 +1,8 @@
-.main_content {
-	margin: 10px;
+
+ .head_image {
+	max-height: 300px;
+	width: 700px;
 	border-radius:15px;
-	background-color:blanchedalmond;
- 
  }
 
  

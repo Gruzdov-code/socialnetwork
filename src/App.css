@@ -20,10 +20,14 @@
   width: 1200px;
   
 }
- .container img {
-	max-height: 300px;
+.wrapper-content {
 	width: 700px;
+	margin: 10px;
 	border-radius:15px;
+	background-color:blanchedalmond;
+ 
  }
-
+ a.active_link_nav{
+  color: blueviolet;
+  }
 
