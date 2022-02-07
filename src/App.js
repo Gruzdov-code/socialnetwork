@@ -6,7 +6,7 @@ import Dialogs from "./Components/Dialogs/Dialogs";
 import Header from "./Components/Header/Header";
 import Nav from "./Components/Nav/Nav";
 
-function App() {
+function App(props) {
   return (
     <BrowserRouter>
       <div className="app_wrapper">
@@ -16,8 +16,19 @@ function App() {
           <div className="wrapper-content">
             <Routes>
               <Route path="/" element={<Content />} />
-              <Route path="/profile" element={<Content />} />
-              <Route path="/messages" element={<Dialogs />} />
+              <Route
+                path="/profile"
+                element={<Content postsData={props.postsData} />}
+              />
+              <Route
+                path="/messages"
+                element={
+                  <Dialogs
+                    dialogsData={props.dialogsData}
+                    messages={props.messages}
+                  />
+                }
+              />
             </Routes>
           </div>
         </div>
