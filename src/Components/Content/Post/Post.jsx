@@ -4,10 +4,10 @@ import s from "./Post.module.css";
 import PostItem from "./PostItem/PostItem";
 
 const Post = (props) => {
-
+  // debugger
   let newPostElement = React.createRef()
 
-  let postsElements = props.postsData.map(p => <PostItem message={p.message} likecounts={p.likecounts} />)
+  let postsElements = props.profilePage.postsData.map(p => <PostItem message={p.message} likecounts={p.likecounts} />)
   let addPost = () => {
     props.addPost()
   }
@@ -24,7 +24,7 @@ const Post = (props) => {
         <textarea
           onChange={onPostChange}
           ref={newPostElement}
-          value={props.newPostText}
+          value={props.profilePage.newPostText}
           className={s.area}
           name="Написать"
           id=""

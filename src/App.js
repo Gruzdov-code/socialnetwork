@@ -5,9 +5,8 @@ import Content from "./Components/Content/Content";
 import Dialogs from "./Components/Dialogs/Dialogs";
 import Header from "./Components/Header/Header";
 import Nav from "./Components/Nav/Nav";
-import { addPost } from "./redux/state";
-
 function App(props) {
+  // debugger;
   return (
     <BrowserRouter>
       <div className="app_wrapper">
@@ -18,27 +17,27 @@ function App(props) {
             <Routes>
               <Route
                 path="/"
-                element={<Content postsData={props.postsData} />}
+                element={
+                  <Content
+                    updateNewPostText={props.updateNewPostText}
+                    addPost={props.addPost}
+                    profilePage={props.state.profilePage}
+                  />
+                }
               />
               <Route
                 path="/profile"
                 element={
                   <Content
                     updateNewPostText={props.updateNewPostText}
-                    newPostText={props.newPostText}
-                    addPost={addPost}
-                    postsData={props.postsData}
+                    addPost={props.addPost}
+                    profilePage={props.state.profilePage}
                   />
                 }
               />
               <Route
                 path="/messages"
-                element={
-                  <Dialogs
-                    dialogsData={props.dialogsData}
-                    messages={props.messages}
-                  />
-                }
+                element={<Dialogs dialogsPage={props.state.dialogsPage} />}
               />
             </Routes>
           </div>
