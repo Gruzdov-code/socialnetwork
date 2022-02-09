@@ -1,6 +1,9 @@
 import React from "react";
 import s from "./PostItem.module.css";
 const PostItem = (props) => {
+
+
+
   return (
     <div className={s.post_item}>
       <img

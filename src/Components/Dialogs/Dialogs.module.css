@@ -1,13 +1,15 @@
 .dialogs {
-	display: flex;
-	justify-content: space-around;
-	align-items:flex-start;
+	
 
 }
 .dialogs_items{
+	display: flex;
+	justify-content: space-around;
+	align-items:flex-start;
 	width: 400px;
 
 }
+
 .messages {
 	width: 400px;
 	overflow: hidden	;
@@ -15,4 +17,18 @@
 .dialogs_items .active {
 	
 	color:rgb(40, 218, 64);
+}
+.but_test {
+	display: block;
+	border-radius: 15px;
+	background-color: rgb(40, 218, 64);
+	width: 80px;
+	 height: 30px;
+	 position: relative;
+	 float: right;
+}
+
+.area {
+	width: 100%;
+	resize: none;
 }

@@ -5,6 +5,7 @@ import Content from "./Components/Content/Content";
 import Dialogs from "./Components/Dialogs/Dialogs";
 import Header from "./Components/Header/Header";
 import Nav from "./Components/Nav/Nav";
+import { addPost } from "./redux/state";
 
 function App(props) {
   return (
@@ -15,10 +16,20 @@ function App(props) {
           <Nav />
           <div className="wrapper-content">
             <Routes>
-              <Route path="/" element={<Content />} />
+              <Route
+                path="/"
+                element={<Content postsData={props.postsData} />}
+              />
               <Route
                 path="/profile"
-                element={<Content postsData={props.postsData} />}
+                element={
+                  <Content
+                    updateNewPostText={props.updateNewPostText}
+                    newPostText={props.newPostText}
+                    addPost={addPost}
+                    postsData={props.postsData}
+                  />
+                }
               />
               <Route
                 path="/messages"

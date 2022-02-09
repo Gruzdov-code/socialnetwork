@@ -1,5 +1,14 @@
 .area {
-	color: #000;
+	color: rgb(255, 255, 255);
 	width: 500px;
 	margin-bottom: 10px;
+	resize: none;
+}
+
+.but_test {
+	display: block;
+	border-radius: 15px;
+	background-color: rgb(40, 218, 64);
+	width: 80px;
+	 height: 30px;
 }
