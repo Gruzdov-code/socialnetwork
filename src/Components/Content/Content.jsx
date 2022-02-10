@@ -14,9 +14,7 @@ const Content = (props) => {
 			<div className={s.main_content}>
 				<Friends />
 				<Post
-					updateNewPostText={props.updateNewPostText}
-
-					addPost={props.addPost} profilePage={props.profilePage} /></div>
+					dispatch={props.dispatch} profilePage={props.profilePage} /></div>
 		</div >
 
 	);

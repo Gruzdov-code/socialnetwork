@@ -13,6 +13,7 @@ const Nav = (props) => {
 				<NavItem to="/music" name="Music" />
 				<NavItem to="/settings" name="Settings" />
 				<NavItem to="/" name="Main" />
+				<NavItem to="/architecture" name="Architecture" />
 
 
 

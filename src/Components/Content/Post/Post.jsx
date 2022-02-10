@@ -1,22 +1,25 @@
 import React from "react";
+import { addPostActionCreator, updateNewPostTextActionCreator } from "../../../redux/profileReducer";
+
 import PostButton from "../../UI/PostButton";
 import s from "./Post.module.css";
 import PostItem from "./PostItem/PostItem";
 
+
 const Post = (props) => {
   // debugger
-  let newPostElement = React.createRef()
+  let newPostElement = React.createRef();
 
-  let postsElements = props.profilePage.postsData.map(p => <PostItem message={p.message} likecounts={p.likecounts} />)
+  let postsElements = props.profilePage.postsData.map((p) => (
+    <PostItem message={p.message} likecounts={p.likecounts} />
+  ));
   let addPost = () => {
-    props.addPost()
-  }
+    props.dispatch(addPostActionCreator()); //Функция добавления записи на кнопке
+  };
   let onPostChange = () => {
-    let text = newPostElement.current.value
-    props.updateNewPostText(text)
-  }
-
-
+    let text = newPostElement.current.value;
+    props.dispatch(updateNewPostTextActionCreator(text)); //Функция добавления СИМВОЛА в текстэрию
+  };
 
   return (
     <div>
@@ -32,12 +35,13 @@ const Post = (props) => {
           rows="2"
         />
       </div>
-      <button className={s.but_test} onClick={addPost}>Добавить</button>
+      <button className={s.but_test} onClick={addPost}>
+        Добавить
+      </button>
       {/* <PostButton /> */}
       {postsElements}
-
-    </div >
+    </div>
   );
 };
 
-export default Post
+export default Post;

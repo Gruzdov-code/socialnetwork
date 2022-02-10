@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
+import Architecture from "./Components/Architecture/Architecture";
 import Content from "./Components/Content/Content";
 import Dialogs from "./Components/Dialogs/Dialogs";
 import Header from "./Components/Header/Header";
@@ -29,16 +30,21 @@ function App(props) {
                 path="/profile"
                 element={
                   <Content
-                    updateNewPostText={props.updateNewPostText}
-                    addPost={props.addPost}
+                    dispatch={props.dispatch}
                     profilePage={props.state.profilePage}
                   />
                 }
               />
               <Route
                 path="/messages"
-                element={<Dialogs dialogsPage={props.state.dialogsPage} />}
+                element={
+                  <Dialogs
+                    dispatch={props.dispatch}
+                    dialogsPage={props.state.dialogsPage}
+                  />
+                }
               />
+              <Route path="/architecture" element={<Architecture />} />
             </Routes>
           </div>
         </div>

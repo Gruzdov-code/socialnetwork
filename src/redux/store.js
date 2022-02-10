@@ -1,4 +1,9 @@
+import dialogsReducer from "./dialogsReducer";
+import profileReducer from "./profileReducer";
+import sidebarReducer from "./sidebarReducer";
+
 // store -OOPi
+
 let store = {
   _state: {
     profilePage: {
@@ -89,7 +94,9 @@ let store = {
           message: "kaaaaaaaaaaaaassssssyyy",
         },
       ],
+      newMessageText: "",
     },
+    sidebar: {},
   },
 
   getState() {
@@ -99,23 +106,15 @@ let store = {
     console.log("State is changed");
   },
 
-  addPost() {
-    let newPost = {
-      id: 5,
-      message: this._state.profilePage.newPostText,
-      likecounts: 0,
-    };
-    this._state.profilePage.postsData.push(newPost);
-    this._state.profilePage.newPostText = "";
-    this._rerenderEntireTree(this._state);
-  },
-  updateNewPostText(newText) {
-    this._state.profilePage.newPostText = newText;
-    this._rerenderEntireTree(this._state);
-  },
   subscribe(observer) {
     this._rerenderEntireTree = observer;
     // Наблюдатель обсервер aka слушатель
+  },
+  dispatch(action) {
+    this._state.profilePage = profileReducer(this._state.profilePage, action);
+    this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
+    this._state.sidebar = sidebarReducer(this._state.sidebar, action);
+    this._rerenderEntireTree(this._state);
   },
 };
 
