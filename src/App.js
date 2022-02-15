@@ -1,51 +1,30 @@
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
-
-function App() {
+import Architecture from "./Components/Architecture/Architecture";
+import Content from "./Components/Content/Content";
+import DialogsContainer from "./Components/Dialogs/DialogsContainer";
+import Header from "./Components/Header/Header";
+import Nav from "./Components/Nav/Nav";
+function App(props) {
+  // debugger;
   return (
-    <div className="app-wrapper">
-      <header className="header">
-        <img src="https://img2.freepng.ru/20180606/ryo/kisspng-thumb-signal-basingstoke-clip-art-5b185bcbc0df63.10493492152832301979.jpg"></img>
-      </header>
-      <div className="container">
-        <nav className="nav">
-          <div className="nav-ul">
-            <li className="nav-ul-li">
-              <span>tetert5tet</span>
-            </li>
-            <li className="nav-ul-li">
-              {" "}
-              <span>tetert5tet</span>
-            </li>
-            <li className="nav-ul-li">
-              <span>tetert5tet</span>
-            </li>
-            <li className="nav-ul-li">
-              {" "}
-              <span>tetert5tet</span>
-            </li>
-            <li className="nav-ul-li">
-              {" "}
-              <span>tetert5tet</span>
-            </li>
-            <li className="nav-ul-li">
-              {" "}
-              <span>tetert5tet</span>
-            </li>
-            <li className="nav-ul-li">
-              {" "}
-              <span>tetert5tet</span>
-            </li>
-            <li className="nav-ul-li">
-              {" "}
-              <span>tetert5tet</span>
-            </li>
+    <BrowserRouter>
+      <div className="app_wrapper">
+        <Header />
+        <div className="container">
+          <Nav />
+          <div className="wrapper-content">
+            <Routes>
+              <Route path="/" element={<Content />} />
+              <Route path="/profile" element={<Content />} />
+              <Route path="/messages" element={<DialogsContainer />} />
+              <Route path="/architecture" element={<Architecture />} />
+            </Routes>
           </div>
-        </nav>
-        <div className="main-content">
-          <img src="https://pbs.twimg.com/profile_banners/1153728498688827392/1563908974/1500x500"></img>
         </div>
       </div>
-    </div>
+    </BrowserRouter>
   );
 }
 
