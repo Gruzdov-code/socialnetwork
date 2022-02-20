@@ -1,7 +1,7 @@
 import React from "react";
 import s from "./Content.module.css";
 import Friends from "./Friends/Friends";
-import Post from "./Post/Post";
+import PostContainer from "./Post/PostContainer";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
 const Content = (props) => {
@@ -13,8 +13,9 @@ const Content = (props) => {
 			<ProfileInfo />
 			<div className={s.main_content}>
 				<Friends />
-				<Post
-					dispatch={props.dispatch} profilePage={props.profilePage} /></div>
+				<PostContainer
+
+				/> </div>
 		</div >
 
 	);
