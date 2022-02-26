@@ -1,0 +1,24 @@
+.item {
+	list-style: none;
+	margin: 5px;
+  
+	width: 200px; 
+ }
+ 
+ 
+
+ 
+ 
+ .item_div a {
+	 line-height: 25px;
+	 margin: 5px;
+	 padding-left: 10px;
+	 display: block;
+	 width: 250px;
+	 text-decoration: none;
+ }
+ .item_div a:hover {
+	border-radius: 10px;
+	background-color:rgb(100, 100, 100);
+	width: 100%;
+}
