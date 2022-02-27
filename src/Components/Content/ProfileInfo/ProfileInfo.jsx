@@ -1,13 +1,19 @@
 import React from "react";
+import Preloader from "../../UI/Preloader/Preloader";
 import s from "./ProfileInfo.module.css";
-const ProfileInfo = () => {
+const ProfileInfo = (props) => {
+  if (!props.profile) {
+    return <Preloader />;
+  }
   return (
     <div>
       <img
         className={s.head_image}
-        src="https://pbs.twimg.com/profile_banners/1153728498688827392/1563908974"
-        alt="imag"
-      ></img>
+        src="https://elementy.ru/images/kartinka_dnya/plateau_putorana_1_3000.jpg"
+        alt="imag"></img>
+      <div>
+        <img src={props.profile.photos.large} />
+      </div>
     </div>
   );
 };

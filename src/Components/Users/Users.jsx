@@ -1,11 +1,9 @@
 import React from "react";
 import s from "./Users.module.css";
 import usersPhoto from "./../../assets/defaultPhoto.png";
+import { NavLink } from "react-router-dom";
 
 const Users = (props) => {
-  let fives = new Number(5);
-  console.log(fives);
-
   let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
   let pages = [];
   for (let i = 1; i <= pagesCount; i++) {
@@ -22,8 +20,7 @@ const Users = (props) => {
               }}
               className={
                 props.currentPage === p && s.selected + " " + s.pagesdiv
-              }
-            >
+              }>
               {p}{" "}
             </div>
           );
@@ -34,27 +31,27 @@ const Users = (props) => {
           <div key={u.id}>
             <span>
               <div>
-                <img
-                  src={u.photos.small != null ? u.photos.small : usersPhoto}
-                  className={s.usersPhoto}
-                  alt="Фоточка"
-                />
+                <NavLink to={"/profile/" + {}}>
+                  <img
+                    src={u.photos.small != null ? u.photos.small : usersPhoto}
+                    className={s.usersPhoto}
+                    alt="Фоточка"
+                  />
+                </NavLink>
               </div>
               <div>
                 {u.followed ? (
                   <button
                     onClick={() => {
                       props.unfollow(u.id);
-                    }}
-                  >
+                    }}>
                     Unfollow
                   </button>
                 ) : (
                   <button
                     onClick={() => {
                       props.follow(u.id);
-                    }}
-                  >
+                    }}>
                     Follow
                   </button>
                 )}
