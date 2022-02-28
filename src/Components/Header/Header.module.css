@@ -11,3 +11,13 @@
 	width: 20px;
 	border-radius: 5px;
  }
+ .loginBlock{
+	 display: flex;
+	 justify-content: flex-end;
+	 border: 1 solid rgb(20, 255, 20);
+
+
+ }
+ .loginBlock a {
+	 color: rgb(109, 187, 255);
+ }
