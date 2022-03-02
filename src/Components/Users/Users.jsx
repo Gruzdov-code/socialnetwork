@@ -20,7 +20,8 @@ const Users = (props) => {
               }}
               className={
                 props.currentPage === p && s.selected + " " + s.pagesdiv
-              }>
+              }
+            >
               {p}{" "}
             </div>
           );
@@ -31,7 +32,7 @@ const Users = (props) => {
           <div key={u.id}>
             <span>
               <div>
-                <NavLink to={"/profile/" + {}}>
+                <NavLink to={"/profile/" + u.id}>
                   <img
                     src={u.photos.small != null ? u.photos.small : usersPhoto}
                     className={s.usersPhoto}
@@ -44,14 +45,16 @@ const Users = (props) => {
                   <button
                     onClick={() => {
                       props.unfollow(u.id);
-                    }}>
+                    }}
+                  >
                     Unfollow
                   </button>
                 ) : (
                   <button
                     onClick={() => {
                       props.follow(u.id);
-                    }}>
+                    }}
+                  >
                     Follow
                   </button>
                 )}

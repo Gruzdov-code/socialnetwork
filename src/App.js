@@ -17,7 +17,9 @@ function App(store) {
         <div className="wrapper-content">
           <Routes>
             <Route path="/" element={<ProfileContainer />} />
+
             <Route path="/profile/*" element={<ProfileContainer />} />
+
             <Route path="/messages" element={<DialogsContainer />} />
             <Route path="/architecture" element={<Architecture />} />
             <Route path="/users" element={<UsersContainer />} />
