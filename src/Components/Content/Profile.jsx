@@ -5,7 +5,6 @@ import PostContainer from "./Post/PostContainer";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
 const Profile = (props) => {
-  // debugger
   return (
     <div className={s.main_content}>
       <ProfileInfo profile={props.profile} />
