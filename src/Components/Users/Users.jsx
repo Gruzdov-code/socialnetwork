@@ -19,7 +19,7 @@ const Users = (props) => {
                 props.onPageChanged(p);
               }}
               className={
-                props.currentPage === p && s.selected + " " + s.pagesdiv
+                (props.currentPage === p && s.selected + " " + s.pagesdiv) || s.pages
               }>
               {p}{" "}
             </div>
@@ -31,7 +31,7 @@ const Users = (props) => {
           <div key={u.id}>
             <span>
               <div>
-                <NavLink to={"/profile/" + {}}>
+                <NavLink to={"/profile/" + u.id}>
                   <img
                     src={u.photos.small != null ? u.photos.small : usersPhoto}
                     className={s.usersPhoto}

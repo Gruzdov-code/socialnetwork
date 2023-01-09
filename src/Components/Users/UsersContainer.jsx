@@ -67,7 +67,7 @@ let mapStateToProps = (state) => {
   };
 };
 
-// let mapDispatchToProps = (dispatch) => {
+// let mapDispatchToProps= (dispatch) => {
 //   return {
 //     follow: (userId) => {
 //       dispatch(followAC(userId));
@@ -89,6 +89,9 @@ let mapStateToProps = (state) => {
 //     },
 //   };
 // };
+
+
+
 export default connect(mapStateToProps, {
   follow,
   unfollow,

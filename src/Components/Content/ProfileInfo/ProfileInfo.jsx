@@ -12,7 +12,7 @@ const ProfileInfo = (props) => {
         src="https://elementy.ru/images/kartinka_dnya/plateau_putorana_1_3000.jpg"
         alt="imag"></img>
       <div>
-        <img src={props.profile.photos.large} />
+        <img className={s.head_image} alt="profile_photo" src={props.profile.photos.large} />
       </div>
     </div>
   );
