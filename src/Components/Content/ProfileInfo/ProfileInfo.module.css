@@ -1,8 +1,14 @@
 
- .head_image {
+ .headImage {
 	max-height: 300px;
 	width: 700px;
 	border-radius:15px;
  }
 
- 
+ .socialNetwork {
+	display: flex;
+	flex-direction: column;
+ }
+ .profilePhotoLarge{
+	padding: 10px 0px;
+ }

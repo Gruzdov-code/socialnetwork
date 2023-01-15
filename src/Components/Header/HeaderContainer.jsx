@@ -29,3 +29,4 @@ const mapStateToProps = (state) => ({
   photos: state.auth.userId,
 });
 export default connect(mapStateToProps, { setAuthUserData })(HeaderContainer);
+ 
