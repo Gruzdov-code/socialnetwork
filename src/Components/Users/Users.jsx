@@ -2,6 +2,7 @@ import React from "react";
 import s from "./Users.module.css";
 import usersPhoto from "./../../assets/defaultPhoto.png";
 import { NavLink } from "react-router-dom";
+import axios from "axios";
 
 const Users = (props) => {
   let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
@@ -9,6 +10,22 @@ const Users = (props) => {
   for (let i = 1; i <= pagesCount; i++) {
     pages.push(i);
   }
+  // function changeNumber() {
+  //   let number=0
+  //   console.log(`number внутри функции changeNumber: ${number}`);
+  //   return function(sum){
+  //     number += sum
+  //     return console.log(`number внутри анонимной функции: ${number}`);
+
+  //   }
+  // }
+
+  // const change = changeNumber()
+  // change(10)
+  // change(20)
+  // change(30)
+  // change(-5)
+
   return (
     <div>
       <div>
@@ -19,8 +36,10 @@ const Users = (props) => {
                 props.onPageChanged(p);
               }}
               className={
-                (props.currentPage === p && s.selected + " " + s.pagesdiv) || s.pages
-              }>
+                (props.currentPage === p && s.selected + " " + s.pagesdiv) ||
+                s.pages
+              }
+            >
               {p}{" "}
             </div>
           );
@@ -43,6 +62,20 @@ const Users = (props) => {
                 {u.followed ? (
                   <button
                     onClick={() => {
+
+                      axios
+                        .delete(
+                          `https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,
+                          { withCredentials: true,
+                            //  headers: "API-KEY": "ЗНАЧЕНИЯ КЛЮЧА",
+                              }
+                        )
+                        .then((response) => {
+                          if (response.data.resultCode == 1) {
+                            props.follow(u.id);
+                          }
+                        });
+
                       props.unfollow(u.id);
                     }}
                   >
@@ -51,7 +84,17 @@ const Users = (props) => {
                 ) : (
                   <button
                     onClick={() => {
-                      props.follow(u.id);
+                      axios
+                        .post(
+                          `https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,
+                          {},
+                          { withCredentials: true }
+                        )
+                        .then((response) => {
+                          if (response.data.resultCode == 0) {
+                            props.follow(u.id);
+                          }
+                        });
                     }}
                   >
                     Follow
