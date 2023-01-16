@@ -4,7 +4,7 @@ import "./App.css";
 import Architecture from "./Components/Architecture/Architecture";
 import ProfileContainer from "./Components/Content/ProfileContainer";
 import DialogsContainer from "./Components/Dialogs/DialogsContainer";
-import HeaderContainer from "./Components/Header/HeaderComponent";
+import HeaderContainer from "./Components/Header/HeaderContainer";
 import Nav from "./Components/Nav/Nav";
 import UsersContainer from "./Components/Users/UsersContainer";
 function App(store) {
@@ -16,7 +16,7 @@ function App(store) {
         <Nav />
         <div className="wrapper-content">
           <Routes>
-            <Route path="" element={<ProfileContainer />} />
+            <Route path="*/" element={<ProfileContainer />} />
 
             <Route path="/profile/:userId" element={<ProfileContainer />} />
 

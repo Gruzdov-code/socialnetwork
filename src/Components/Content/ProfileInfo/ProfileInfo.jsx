@@ -1,34 +1,66 @@
 import React from "react";
 import s from "./ProfileInfo.module.css";
+// import Inst from "../../../assets/instagram.svg";
+import usersPhoto from "../../../assets/defaultPhoto.png";
+import Preloader from "../../UI/Preloader/Preloader";
+// import usersPhoto from "../../../assets/defaultPhoto.png";
 const ProfileInfo = (props) => {
   if (!props.profile) {
-    return "Нет пропсов в профайл Инфо";
+    return <Preloader/>;
   }
-  // debugger;
+
   return (
     <div>
       <img
-        className={s.head_image}
+        className={s.headImage}
         src="https://elementy.ru/images/kartinka_dnya/plateau_putorana_1_3000.jpg"
-        alt="imag"
-      ></img>
+        alt="imag"></img>
       <div>
+        <p className={s.description}>{props.profile.fullName}</p>
         <img
-          className={s.head_image}
+          className={s.profilePhotoLarge}
           alt="profile_photo"
-          src={props.profile.photos.large}
+          src={
+            props.profile.photos.large ? props.profile.photos.large : usersPhoto
+          }
         />
-        <span className="descrition">{props.profile.aboutMe}</span>
+        <p className={s.description}>Обо мне: {props.profile.aboutMe}</p>
+        <p className={s.description}>
+          {props.profile.lookingForAJob ? "Ищу работу" : "Не ищу работу"}
+        </p>
+        <p className={s.description}>
+          {props.profile.lookingForAJobDescription
+            ? props.profile.lookingForAJobDescription
+            : null}
+        </p>
       </div>
-      <div className="social-network">
-        <span className="social-network__item"><img src="/src/assets/instagram-svgrepo-com.svg" alt="instagram" className="social-network__icon" />props.profile.contacts.instagram</span>
-        {/* <span className="social-network__item"><img src="/src/assets/internet-media-social-2-svgrepo-com.svg" alt="vk" className="social-network__icon" />props.profile.contacts.t</span> */}
-        <span className="social-network__item"><img src="/src/assets/social-facebook-svgrepo-com.svg" alt="vk" className="social-network__icon" />props.profile.contacts.facebook</span>
-        <span className="social-network__item"><img src="/src/assets/social-github-svgrepo-com.svg" alt="github" className="social-network__icon" />props.profile.contacts.github</span>
-        <span className="social-network__item"><img src="/src/assets/twitter-svgrepo-com.svg" alt="twitter" className="social-network__icon" />props.profile.contacts.twitter</span>
-        <span className="social-network__item"><img src="/src/assets/vk-svgrepo-com.svg" alt="vk" className="social-network__icon" />props.profile.contacts.vk</span>
-        <span className="social-network__item"><img src="/src/assets/youtube-you-tube-video-svgrepo-com.svg" alt="youtube" className="social-network__icon" />props.profile.contacts.youtube</span>
-        {/* <span className="social-network__item"><img src="/src/assets/" alt="vk" className="social-network__icon" />props.profile.contacts.facebook</span> */}
+      <div className={s.socialNetwork}>
+        {" "}
+        {props.profile.contacts.github ? (
+          <a href={props.profile.contacts.github}>github</a>
+        ) : null}{" "}
+        {props.profile.contacts.website ? (
+          <a href={props.profile.contacts.website}>website</a>
+        ) : null}
+        {props.profile.contacts.facebook ? (
+          <a href={props.profile.contacts.facebook}>facebook</a>
+        ) : null}
+        {props.profile.contacts.twitter ? (
+          <a href={props.profile.contacts.twitter}>twitter</a>
+        ) : null}
+        {props.profile.contacts.instagram ? (
+          <a href={props.profile.contacts.instagram}>instagram</a>
+        ) : null}
+        {props.profile.contacts.vk ? (
+          <a href={props.profile.contacts.vk}>VK</a>
+        ) : null}
+        {props.profile.contacts.youtube ? (
+          <a href={props.profile.contacts.youtube}>youtube</a>
+        ) : null}
+        {props.profile.contacts.mainLink ? (
+          <a href={props.profile.contacts.mainLink}>mainLink</a>
+        ) : null}
+        {/* <img src="../../../assets/instagram.svg" alt="" /> */}
       </div>
     </div>
   );
