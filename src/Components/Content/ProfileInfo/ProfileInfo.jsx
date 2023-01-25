@@ -37,28 +37,28 @@ const ProfileInfo = (props) => {
       <div className={s.socialNetwork}>
         {" "}
         {props.profile.contacts.github ? (
-          <a href={props.profile.contacts.github}>github</a>
+          <a href={"https://" + props.profile.contacts.github}>github</a>
         ) : null}{" "}
         {props.profile.contacts.website ? (
-          <a href={props.profile.contacts.website}>website</a>
+          <a href={"https://" + props.profile.contacts.website}>website</a>
         ) : null}
         {props.profile.contacts.facebook ? (
-          <a href={props.profile.contacts.facebook}>facebook</a>
+          <a href={"https://" + props.profile.contacts.facebook}>facebook</a>
         ) : null}
         {props.profile.contacts.twitter ? (
-          <a href={props.profile.contacts.twitter}>twitter</a>
+          <a href={"https://" + props.profile.contacts.twitter}>twitter</a>
         ) : null}
         {props.profile.contacts.instagram ? (
-          <a href={props.profile.contacts.instagram}>instagram</a>
+          <a href={"https://" + props.profile.contacts.instagram}>instagram</a>
         ) : null}
         {props.profile.contacts.vk ? (
-          <a href={props.profile.contacts.vk}>VK</a>
+          <a href={"https://" + props.profile.contacts.vk}>VK</a>
         ) : null}
         {props.profile.contacts.youtube ? (
-          <a href={props.profile.contacts.youtube}>youtube</a>
+          <a href={"https://" + props.profile.contacts.youtube}>youtube</a>
         ) : null}
         {props.profile.contacts.mainLink ? (
-          <a href={props.profile.contacts.mainLink}>mainLink</a>
+          <a href={"https://" + props.profile.contacts.mainLink}>mainLink</a>
         ) : null}
         {/* <img src="../../../assets/instagram.svg" alt="" /> */}
       </div>

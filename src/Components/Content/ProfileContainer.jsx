@@ -6,8 +6,6 @@ import Profile from "./Profile";
 
 class ProfileContainer extends React.Component {
   componentDidMount() {
-    debugger;
-    console.log(this.props);
     let userId = this.props.match.params.userId;
     if (!userId) {
       userId = 2;

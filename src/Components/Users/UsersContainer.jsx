@@ -14,11 +14,12 @@ import Users from "./Users";
 import Preloader from "../UI/Preloader/Preloader";
 
 class UsersContainer extends React.Component {
+  
   componentDidMount() {
     this.props.getUsers(this.props.currentPage, this.props.pageSize);
   }
   onPageChanged = (pageNumber) => {
-    this.props.getUsers(this.props.currentPage, this.props.pageSize);
+    this.props.getUsers(pageNumber, this.props.pageSize);
   };
 
   render() {
