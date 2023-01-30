@@ -5,6 +5,7 @@ import Architecture from "./Components/Architecture/Architecture";
 import ProfileContainer from "./Components/Content/ProfileContainer";
 import DialogsContainer from "./Components/Dialogs/DialogsContainer";
 import HeaderContainer from "./Components/Header/HeaderContainer";
+import Login from "./Components/Login/Login";
 import Nav from "./Components/Nav/Nav";
 import UsersContainer from "./Components/Users/UsersContainer";
 function App(store) {
@@ -23,6 +24,7 @@ function App(store) {
             <Route path="/messages" element={<DialogsContainer />} />
             <Route path="/architecture" element={<Architecture />} />
             <Route path="/users" element={<UsersContainer />} />
+            <Route path="/login" element={<Login />} />
           </Routes>
         </div>
       </div>

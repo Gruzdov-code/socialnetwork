@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
-import { useMatch } from "react-router-dom";
+import { Navigate, useMatch } from "react-router-dom";
+import { withAuthRedirect } from "../../hoc/withAuthRedirect";
 import { getUserProfile } from "../../redux/profileReducer";
 import Profile from "./Profile";
 
@@ -15,13 +16,11 @@ class ProfileContainer extends React.Component {
   }
 
   render() {
+    
+    
     return <Profile {...this.props} profile={this.props.profile} />;
   }
 }
-
-let mapStateToProps = (state) => ({
-  profile: state.profilePage.profile,
-});
 // НА 70 НАВЕРНОЕ УДАЛИТЬ
 // debugger
 let RouterComponent = (props) => {
@@ -29,4 +28,13 @@ let RouterComponent = (props) => {
   return <ProfileContainer {...props} match={match} />;
 };
 
-export default connect(mapStateToProps, { getUserProfile })(RouterComponent);
+
+let AuthRedirectComponent = withAuthRedirect(RouterComponent)
+
+let mapStateToProps = (state) => ({
+  profile: state.profilePage.profile,
+});
+
+
+
+export default connect(mapStateToProps, { getUserProfile })(AuthRedirectComponent);

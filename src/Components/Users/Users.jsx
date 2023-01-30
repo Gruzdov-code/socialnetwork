@@ -2,10 +2,8 @@ import React from "react";
 import s from "./Users.module.css";
 import usersPhoto from "./../../assets/defaultPhoto.png";
 import { NavLink } from "react-router-dom";
-import { usersAPI } from "../../api/api";
-
 const Users = (props) => {
-  debugger
+  debugger;
   let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
   let pages = [];
   for (let i = 1; i <= pagesCount; i++) {
@@ -27,7 +25,6 @@ const Users = (props) => {
   // change(30)
   // change(-5)
 
-
   return (
     <div>
       <div>
@@ -40,7 +37,8 @@ const Users = (props) => {
               className={
                 (props.currentPage === p && s.selected + " " + s.pagesdiv) ||
                 s.pages
-              }>
+              }
+            >
               {p}{" "}
             </div>
           );
@@ -66,16 +64,9 @@ const Users = (props) => {
                       (id) => id === u.id
                     )}
                     onClick={() => {
-                      props.toggleFollowingProgress(true, u.id);
-                      usersAPI.unfollow(u.id).then((response) => {
-                        if (response.data.resultCode == 1) {
-                          props.follow(u.id);
-                        }
-                        props.toggleFollowingProgress(false, u.id);
-                      });
-
                       props.unfollow(u.id);
-                    }}>
+                    }}
+                  >
                     Unfollow
                   </button>
                 ) : (
@@ -84,14 +75,9 @@ const Users = (props) => {
                       (id) => id === u.id
                     )}
                     onClick={() => {
-                      props.toggleFollowingProgress(true, u.id);
-                      usersAPI.follow(u.id).then((response) => {
-                        if (response.data.resultCode == 0) {
-                          props.follow(u.id);
-                        }
-                        props.toggleFollowingProgress(false, u.id);
-                      });
-                    }}>
+                      props.follow(u.id);
+                    }}
+                  >
                     Follow
                   </button>
                 )}
