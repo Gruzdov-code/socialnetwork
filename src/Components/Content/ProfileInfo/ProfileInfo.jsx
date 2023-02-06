@@ -3,6 +3,7 @@ import s from "./ProfileInfo.module.css";
 // import Inst from "../../../assets/instagram.svg";
 import usersPhoto from "../../../assets/defaultPhoto.png";
 import Preloader from "../../UI/Preloader/Preloader";
+import ProfileStatus from "./ProfileStatus";
 // import usersPhoto from "../../../assets/defaultPhoto.png";
 const ProfileInfo = (props) => {
   if (!props.profile) {
@@ -16,7 +17,7 @@ const ProfileInfo = (props) => {
         src="https://elementy.ru/images/kartinka_dnya/plateau_putorana_1_3000.jpg"
         alt="imag"></img>
       <div>
-        <p className={s.description}>{props.profile.fullName}</p>
+        <ProfileStatus status={props.status} updateStatus={props.updateStatus}/>
         <img
           className={s.profilePhotoLarge}
           alt="profile_photo"
